@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tech Goals</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f4f4f44e;
+        color: #333;
+      }
+      :root {
+        --themeColour: #390209;
+      }
+      header {
+        /* background-color: #4caf50; */
+        background-color: var(--themeColour);
+        color: white;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      main {
+        width: 90%;
+        max-width: 800px;
+        margin: 2rem 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      section {
+        margin-bottom: 1.5rem;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* text-align: center; */
+      }
+      .center {
+        align-items: center;
+      }
+      img {
+        display: block;
+        margin: 1rem 0;
+        max-width: 100%;
+      }
+      .box-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      .autoRotate {
+        animation: autoRotateAnimation;
+        animation-timeline: view();
+      }
+      @keyframes autoRotateAnimation {
+        from {
+          transform: rotate(360deg);
+        }
+        to {
+          transform: rotate(180deg);
+        }
+      }
+      .links a {
+        display: block;
+        color: #fff;
+        background-color: #4caf50;
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .links a:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+      h2 {
+        color: var(--themeColour);
+        font-size: 1.5rem;
+        border-bottom: 2px solid var(--themeColour);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        /* color: rgb(240, 243, 236);
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+        /* animation: autoShowAnimation;
+        animation-timeline: view(60%40%); */
+      }
+      @keyframes autoShowAnimation {
+        from {
+          opacity: 0, 3;
+          transform: translateY(200px) scale(0.3);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      h2::before {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        background-color: var(--themeColour);
+        bottom: -2px;
+        left: 0;
+      }
+      @media (max-width: 600px) {
+        main {
+          width: 90%;
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Tech Goals for the Next Two Years</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>About Me</h2>
+        <div class="card center">
+          <img
+            src="slackProfilePicture.jpg"
+            data-testid="slackProfilePicture"
+            alt="Slack Profile Picture"
+            class="autoRotate box-shadow"
+          />
+          <p>
+            Slack Name:
+            <span data-testid="slackDisplayName">@64eyes</span>
+          </p>
+          <p>
+            Slack Email:
+            <span data-testid="slackEmail">madamorit8@gmail.com</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Current Time and Day</h2>
+        <div class="card">
+          <p>
+            Current Time (UTC):
+            <span data-testid="currentTimeUTC">00:00:00</span>
+          </p>
+          <p>Current Day: <span data-testid="currentDay">Monday</span></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Goals</h2>
+        <div class="card">
+          <p>
+            To have a good placement at a good company, remain relevant in the
+            tech industry, and have my startup (EmpawaTech) blossoming. I'll
+            achieve these goals by:
+          </p>
+          <ul>
+            <li>Mastering front-end development using React and Vue.js</li>
+            <li>Improving my back-end skills with Node.js and Python</li>
+            <li>Contributing to open-source projects</li>
+            <li>Learning DevOps practices and tools</li>
+            <li>Getting certified in cloud services like AWS and Azure</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="links">
+        <h2>Useful Links</h2>
+        <div class="card">
+          <a href="https://hng.tech/learn" target="_blank" data-testid="hngLink"
+            >hng.tech/learn</a
+          >
+          <a
+            href="https://keyword.dog"
+            target="_blank"
+            data-testid="keywordLink"
+            >keyword.dog</a
+          >
+          <a
+            href="https://scrapeanyweb.site"
+            target="_blank"
+            data-testid="scrapeanywebLink"
+            >scrapeanyweb.site</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const currentTimeUTC = document.querySelector(
+          '[data-testid="currentTimeUTC"]'
+        );
+        const currentDay = document.querySelector('[data-testid="currentDay"]');
+
+        function updateTime() {
+          const now = new Date();
+          currentTimeUTC.textContent = now
+            .toISOString()
+            .split("T")[1]
+            .split(".")[0];
+          currentDay.textContent = now.toLocaleString("en-US", {
+            weekday: "long",
+          });
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+      });
+    </script>
+  </body>
+</html>
